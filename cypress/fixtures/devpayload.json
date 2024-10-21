@@ -1,0 +1,328 @@
+{
+    "createService": {
+        "service_name": "API Service",
+        "service_desc": "This is the API service",
+        "business_unit": "AOJNX4KP",
+        "business_unit_name": "",
+        "business_unit_description": "",
+        "team_id": "TH5GX2YCU",
+        "team_name": "Dev Team1",
+        "escalation_policy": "O9FIHUCW",
+        "selectedPlatformData": [
+            {
+                "platformId": 3,
+                "name": "grafana",
+                "tool_type": "inbound",
+                "level": "service",
+                "created_by": {
+                    "email": "pooja.chaudhari@p99soft.com",
+                    "first_name": "Pooja",
+                    "last_name": "Chaudhari",
+                    "id": "UVFLS4WDW"
+                },
+                "updated_by": {
+                    "email": "pooja.chaudhari@p99soft.com",
+                    "first_name": "Pooja",
+                    "last_name": "Chaudhari",
+                    "id": "UVFLS4WDW"
+                },
+                "company_id": "TNMX5EX_6",
+                "company_name": "Bugraid-Dev"
+            }
+        ]
+    
+    },
+    "multipleServiceBase": {
+        "servicetBase": {
+           "business_unit": "AOJNX4KP",
+        "business_unit_name": "",
+        "business_unit_description": "",
+        "team_id": "TH5GX2YCU",
+        "team_name": "Dev Team1",
+        "escalation_policy": "O9FIHUCW",
+            "selectedPlatformData": [
+                {
+                    "platformId": 3,
+                "name": "grafana",
+                "tool_type": "inbound",
+                "level": "service",
+                    "created_by": {
+                        "email": "pooja.chaudhari@p99soft.com",
+                    "first_name": "Pooja",
+                    "last_name": "Chaudhari",
+                    "id": "UVFLS4WDW"
+                    },
+                    "updated_by": {
+                        "email": "pooja.chaudhari@p99soft.com",
+                    "first_name": "Pooja",
+                    "last_name": "Chaudhari",
+                    "id": "UVFLS4WDW"
+                    },
+                    "company_id": "TNMX5EX_6",
+                "company_name": "Bugraid-Dev"
+                }
+            ]
+        }
+    },
+    "updateService":{
+        "name": "API Service",
+        "team": {
+            "id": "TH5GX2YCU",
+            "name": "Dev Team1"
+        },
+        "description": "This is the API service",
+        "business_units": [
+            "AOJNX4KP"
+        ],
+        "escalation_policy": "O9FIHUCW"
+    
+    },
+    "singleIncident": {
+        "title": "Testing Slack APIs ",
+        "description": "test",
+        "service": {
+            "id": "LODTDWMQ",
+            "name": "API Service",
+            "escalation_policy": "O9FIHUCW",
+            "escalation_policy_name": "Jira service- Escalation Policy"
+        },
+        "urgency": "low",
+        "priority": "low",
+        "reported_by": {
+            "first_name": "Pooja",
+            "last_name": "Chaudhari",
+            "email": "pooja.chaudhari@p99soft.com",
+            "id": "UVFLS4WDW"
+        }
+    
+    },
+    "resolvePayload": {
+        
+            "action": "resolve",
+            "rootCauseAnalysis": "Resolved",
+            "category": "Network Issue",
+            "resolutionType": "Permanent Fix",
+            "resolvedBy": "Pooja Chaudhari",
+            "resolutionDateTime": "10/17/2024, 10:14:35 AM",
+            "user": {
+                "first_name": "Pooja",
+                "last_name": "Chaudhari",
+                "id": "UVFLS4WDW",
+                "email": "pooja.chaudhari@p99soft.com"
+            }
+        
+    },
+    "multipleIncidents": {
+        "incidentBase": {
+            "priority": "low",
+            "reported_by": {
+                "first_name": "Pooja",
+            "last_name": "Chaudhari",
+            "email": "pooja.chaudhari@p99soft.com",
+            "id": "UVFLS4WDW"
+            },
+            "service": {
+                "id": "LODTDWMQ",
+            "name": "API Service",
+            "escalation_policy": "O9FIHUCW",
+            "escalation_policy_name": "Jira service- Escalation Policy"
+            },
+            "urgency": "low"
+        }
+    },
+    "acknowledgeIncident": {
+        "action": "acknowledge",
+        "user": {
+            "first_name": "Pooja",
+            "last_name": "Chaudhari",
+            "email": "Pooja",
+            "id": "UVFLS4WDW"
+        }
+    
+    },
+    
+    "assignincident": {
+        "action": "assign",
+        "assignee": {
+            "first_name": "Ritambra",
+            "last_name": "Yadav"
+        },
+        "user": {
+            "first_name": "Pooja",
+            "last_name": "Chaudhari",
+            "email": "Pooja",
+            "id": "UVFLS4WDW"
+        }
+    },
+    "createupdateticket": {
+        "title": "Test incident",
+        "description": "Test incident 1",
+        "priority": "low",
+        "urgency": "low",
+        "affectedService": "IILRMGEF",
+        "assignee": "Pooja Chaudhari",
+        "reporter": "Pooja Chaudhari",
+        "summary": "Test incident",
+        "status": "triggered",
+        "operation": "createIssue",
+        "projectname": "Kanban"
+    },
+    "newrelicpayload": {
+        "id": "d1b1f3fd-995a-4066-88ab-8ce4f6960654",
+        "issueUrl": "https://radar-api.service.newrelic.com/accounts/1/issues/0ea2df1c-adab-45d2-aae0-042b609d2322?notifier=SLACK",
+        "title": "Memory Used % > 90 for at least 2 minutes on 'Some-Entity'",
+        "priority": "CRITICAL",
+        "impactedEntities": ["logs.itg.cloud", "MonitorTTFB query"],
+        "totalIncidents": 42,
+        "state": "ACTIVATED",
+        "trigger": "INCIDENT_ADDED",
+        "isCorrelated": false,
+        "createdAt": 1617881246260,
+        "updatedAt": 1617881246260,
+        "sources": ["newrelic"],
+        "alertPolicyNames": ["Policy1", "Policy2"],
+        "alertConditionNames": ["condition1", "condition2"],
+        "workflowName": "DBA Team workflow"
+    },
+    "pagerdutypayload": {
+        "incident": {
+            "type": "incident",
+            "title": "pagerduty testing",
+            "service": {
+                "id": "P9PXLF4",
+                "type": "service_reference"
+            },
+            "escalation_policy": {
+                "id": "PPFR8RT",
+                "type": "escalation_policy_reference"
+            },
+            "incident_key": "798b8cbbea2a40a7a878d41c081be795",
+            "body": {
+                "type": "incident_body",
+                "details": "Incident details can be added here."
+            },
+            "priority": {
+                "id": "P123456",
+                "type": "priority_reference"
+            },
+            "assignees": [
+                {
+                    "id": "P40SQ3T",
+                    "type": "user_reference"
+                }
+            ],
+            "status": "triggered",
+            "number": 30,
+            "html_url": "https://surajss.pagerduty.com/incidents/Q2XXAKGT23V6N7",
+            "self": "https://api.pagerduty.com/incidents/Q2XXAKGT23V6N7",
+            "created_at": "2024-09-20T06:54:13Z",
+            "occurred_at": "2024-09-20T06:54:13.506Z",
+            "agent": {
+                "id": "P40SQ3T",
+                "summary": "suraj shinde",
+                "type": "user_reference",
+                "self": "https://api.pagerduty.com/users/P40SQ3T",
+                "html_url": "https://surajss.pagerduty.com/users/P40SQ3T"
+            }
+        }
+    },
+    "grafanapayload": {
+        "receiver": "Test web hook 1",
+        "status": "firing",
+        "alerts": [
+            {
+                "status": "firing",
+                "labels": {
+                    "TagName": "TAG_001",
+                    "alertname": "Consumptive",
+                    "grafana_folder": "AWARE"
+                },
+                "annotations": {},
+                "startsAt": "2022-10-24T17:42:00Z",
+                "endsAt": "0001-01-01T00:00:00Z",
+                "generatorURL": "https://xxx.grafana.net/alerting/grafana/yyy/view",
+                "fingerprint": "5d40ab866f96ebde",
+                "silenceURL": "https://xxx.grafana.net/alerting/silence/new?alertmanager=grafana&matcher=TagName%3DTAG_001&matcher=alertname%3DConsumptive&matcher=grafana_folder%3DAWARE",
+                "dashboardURL": "",
+                "panelURL": "",
+                "valueString": "[ var='A' labels={TagName=TAG_001} value=3.669710585 ], [ var='B' labels={TagName=TAG_001} value=1 ]"
+            },
+            {
+                "status": "resolved",
+                "labels": {
+                    "TagName": "TAG_002",
+                    "alertname": "Consumptive",
+                    "grafana_folder": "AWARE"
+                },
+                "annotations": {},
+                "startsAt": "2022-10-24T17:35:00Z",
+                "endsAt": "2022-10-24T17:44:00Z",
+                "generatorURL": "https://xxx.grafana.net/alerting/grafana/yyy/view",
+                "fingerprint": "bd5855532c57e057",
+                "silenceURL": "https://xxx.grafana.net/alerting/silence/new?alertmanager=grafana&matcher=TagName%3DTAG_002&matcher=alertname%3DConsumptive&matcher=grafana_folder%3DAWARE",
+                "dashboardURL": "",
+                "panelURL": "",
+                "valueString": "[ var='A' labels={TagName=TAG_002} value=0.06126459 ], [ var='B' labels={TagName=TAG_002} value=0 ]"
+            }
+        ],
+        "groupLabels": {},
+        "commonLabels": {
+            "alertname": "Consumptive",
+            "grafana_folder": "AWARE"
+        },
+        "commonAnnotations": {},
+        "externalURL": "https://xxx.grafana.net/",
+        "version": "1",
+        "groupKey": "{}/{grafana_folder=\"AWARE\"}:{}",
+        "truncatedAlerts": 0,
+        "orgId": 1,
+        "title": "[FIRING:1, RESOLVED:1]  (Consumptive)",
+        "state": "alerting",
+        "message": "Some big message..."
+    },
+    "awspayload": {
+        "Type": "Notification",
+        "MessageId": "f94e835c-8592-5798-8dee-dc04dd394142",
+        "TopicArn": "arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic",
+        "Subject": "ALARM: \"node_disk_used(i-007a83a108d6e2c6e)\" in Asia Pacific (Singapore)",
+        "Message": "{\"AlarmName\":\"node_disk_used(i-007a83a108d6e2c6e)\",\"AlarmDescription\":null,\"AWSAccountId\":\"528104389666\",\"AlarmConfigurationUpdatedTimestamp\":\"2024-09-09T01:58:09.198+0000\",\"NewStateValue\":\"ALARM\",\"NewStateReason\":\"Threshold Crossed: 1 out of the last 1 datapoints [66.66201000304783 (09/09/24 01:54:00)] was greater than the threshold (30.0) (minimum 1 datapoint for OK -> ALARM transition).\",\"StateChangeTime\":\"2024-09-09T01:59:07.423+0000\",\"Region\":\"Asia Pacific (Singapore)\",\"AlarmArn\":\"arn:aws:cloudwatch:ap-southeast-1:528104389666:alarm:node_disk_used(i-007a83a108d6e2c6e)\",\"OldStateValue\":\"OK\",\"OKActions\":[\"arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic\"],\"AlarmActions\":[\"arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic\"],\"InsufficientDataActions\":[\"arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic\"],\"Trigger\":{\"MetricName\":\"disk_used_percent\",\"Namespace\":\"CWAgent\",\"StatisticType\":\"Statistic\",\"Statistic\":\"AVERAGE\",\"Unit\":null,\"Dimensions\":[{\"value\":\"/\",\"name\":\"path\"},{\"value\":\"i-007a83a108d6e2c6e\",\"name\":\"InstanceId\"},{\"value\":\"xvda1\",\"name\":\"device\"},{\"value\":\"xfs\",\"name\":\"fstype\"}],\"Period\":300,\"EvaluationPeriods\":1,\"DatapointsToAlarm\":1,\"ComparisonOperator\":\"GreaterThanThreshold\",\"Threshold\":30.0,\"TreatMissingData\":\"missing\",\"EvaluateLowSampleCountPercentile\":\"\"}}",
+        "Timestamp": "2024-09-09T01:59:07.472Z",
+        "SignatureVersion": "1",
+        "Signature": "C7i0Zp5lovY8a0F80AtsoHv6yoII+YAzPeKq0vvkD2E2yvYac/W9FstnnzqrQhPF/e8pH4zInBDw3e0F3w8ctiamWnS8jpNHIuo+jN3FATnzWA0BV0eDmhlozNRJndSIafNZNcCtRlA3jmUMHpY46OlN/PmDtIKacvfkvaSNwaWvW3F+KCysqVq640MRI7A/QD0KWN8QiDgmMoEhzUhETMtrZHU5yu2LhThpFne1XOAldegCt+lOgzn5NxbF/NLSlpjV8QPkZa35fwph1rXfQosBQ3NgnNa9fQeOIpaVfj2Z+wcYsXShA8LEQConbiN0FHPmWtogfOOczORcR9lbwQ==",
+        "SigningCertURL": "https://sns.ap-southeast-1.amazonaws.com/SimpleNotificationService-60eadc530605d63b8e62a523676ef735.pem",
+        "UnsubscribeURL": "https://sns.ap-southeast-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic:a290580c-353e-4d15-b433-816568796f56"
+    },
+    "inviteuser": {
+        "email": "pooja.chaudhari+3@p99soft.com",
+        "first_name": "Pooja",
+        "last_name": "Chaudhari",
+        "password": "3a0e8912-2e6d-4f19-a25e-8fc4294d469e",
+        "designation": "QA",
+        "company_name": "p99soft-dev",
+        "company_id": "TZPFOAU1W",
+        "user_created": "UJITNBH1K",
+        "teams": [],
+        "phone_no": 917488458883,
+        "role": "VIEWER",
+        "is_registered": false,
+        "is_verified": false,
+        "status": "draft"
+    },
+    "creatteam": {
+        "name": "New QA Dev",
+        "description": "",
+        "user_created": "UJITNBH1K",
+        "user_created_name": "suraj shinde",
+        "company_id": "TZPFOAU1W",
+        "users": [],
+        "status": "active"
+    },
+    "updateTeamPayload": {
+        "name": "Unique Team 1728554209563",
+        "description": ""
+    },
+    "updateTeamdetailsPayload": {
+        "name": "Unique Team 1728554209563",
+        "description": "This is the dev team"
+    }
+}

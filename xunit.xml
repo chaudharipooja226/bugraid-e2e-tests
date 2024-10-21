@@ -1,0 +1,7 @@
+<testsuite name="Mocha Tests" tests="5" failures="0" errors="0" skipped="0" timestamp="Mon, 21 Oct 2024 04:21:10 GMT" time="4.092">
+<testcase classname="Team APIs User Invitation Invite User" name="should successfully invite a user with a unique email" time="1.296"/>
+<testcase classname="Team APIs Team Management Create Team" name="should successfully create a team with a unique name" time="1.092"/>
+<testcase classname="Team APIs Team Management Update Team" name="should successfully update the team" time="0.852"/>
+<testcase classname="Team APIs Team Management Update Team Details" name="should successfully update the team details" time="0.346"/>
+<testcase classname="Team APIs Team Management Get Team by ID" name="should retrieve a team by ID successfully" time="0.182"/>
+</testsuite>
