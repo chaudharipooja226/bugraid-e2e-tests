@@ -1,57 +1,28 @@
-name: API and UI Automation Run on Staging Env
+name: CI Pipeline
 
 on:
-  pull_request:
-    types: [opened, edited, synchronize]
+  push:
     branches:
-      - main
-  workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * *"
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  test-run:
+  build:
     runs-on: ubuntu-latest
-    name: API and UI Automation Tests
+
     steps:
-      - name: Git checkout
-        uses: actions/checkout@v4
+    - name: Checkout the code
+      uses: actions/checkout@v2
+      
+    - name: Set up Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
 
-      - name: Delete Cypress directory (screenshots)
-        shell: bash
-        run: |
-          echo "Deleting Screenshots directory"
-          rm -rf cypress/screenshots || true
+    - name: Install dependencies
+      run: npm install
 
-      - name: Install dependencies
-        shell: bash
-        run: |
-          npm install
-
-      - name: List directories
-        shell: bash
-        run: |
-          echo "Listing base directory"
-          ls -la
-          echo "Listing Cypress directory"
-          ls -ls cypress
-          echo "npx version"
-          npx --version
-          echo "To remove ERROR: gpu_memory_buffer_support_x11.cc(44) dri3 extension not supported."
-          export LIBGL_DRI3_DISABLE=1
-
-      - name: Run API tests
-        run: |
-          echo "Running API tests..."
-          npx cypress run --spec 'cypress/e2e/api-automation/tests/*.spec.js'
-
-      - name: Run UI tests
-        run: |
-          echo "Running UI tests..."
-          npx cypress run --spec 'cypress/e2e/ui-automation/tests/*.spec.js'
-
-      - name: Publish test summary results
-        if: always()
-        run: |
-          echo "Publishing test results..."
-          npx github-actions-ctrf ctrf/ctrf-report.json
+    - name: Run tests
+      run: npm test
