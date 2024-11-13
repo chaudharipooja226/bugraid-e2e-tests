@@ -15,24 +15,27 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v4
-      - name: Delete Cypress directory (screenshots)
+
+      - name: Delete Cypress screenshots directory
         run: |
-          echo "Deleting screenshots directory"
+          echo "Deleting screenshots directory if it exists"
           rm -rf cypress/screenshots || true
+
       - name: Install dependencies
         run: npm install
-      - name: List directories
+
+      - name: Check base directory structure
         run: |
           echo "Listing base directory"
           ls -la
-          echo "Listing Cypress directory"
-          ls -ls cypress
-          echo "npx version"
-          npx --version
-          echo "Disabling GPU memory buffer support to prevent errors"
-          export LIBGL_DRI3_DISABLE=1
+          echo "Listing Cypress directory structure"
+          ls -la cypress
+          echo "Listing API-Automation directory structure"
+          ls -la cypress/e2e/API-Automation || echo "Directory not found"
+
       - name: Run API tests
-        run: npx cypress run --spec cypress/e2e/API-Automation/
+        run: npx cypress run --spec cypress/e2e/API-Automation/ --headed --browser chrome
+
       - name: Publish test summary results
         if: always()
         run: npx github-actions-ctrf --output-file ctrf/ctrf-report.json || true
