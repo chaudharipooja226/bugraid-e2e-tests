@@ -36,4 +36,4 @@ jobs:
         run: npx cypress run --reporter junit
         env:
           # Set any additional environment variables needed here
-          BASE_URL: 'your-base-url'  # If your tests need a specific BASE_URL
+          BASE_URL: 'https://api-singapore.bugraid.ai/api/v1'  # If your tests need a specific BASE_URL
