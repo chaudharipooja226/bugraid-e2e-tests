@@ -1,7 +1,7 @@
 name: API automation run on dev env
 on:
   pull_request:
-    types: [ opened, edited, synchronize ]
+    types: [opened, edited, synchronize]
     branches:
       - main
   workflow_dispatch:
@@ -15,29 +15,24 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v4
-      - name: Delete cypress directory (screenshots)
-        shell: bash
+      - name: Delete Cypress directory (screenshots)
         run: |
-          echo "delete Screenshots directory"
+          echo "Deleting screenshots directory"
           rm -rf cypress/screenshots || true
       - name: Install dependencies
-        shell: bash
-        run: |
-          npm install
+        run: npm install
       - name: List directories
-        shell: bash
         run: |
-          echo "list base directory"
+          echo "Listing base directory"
           ls -la
-          echo "list cypress directory"
+          echo "Listing Cypress directory"
           ls -ls cypress
           echo "npx version"
           npx --version
-          echo "To remove ERROR:gpu_memory_buffer_support_x11.cc(44)] dri3 extension not supported."
+          echo "Disabling GPU memory buffer support to prevent errors"
           export LIBGL_DRI3_DISABLE=1
-      - name: Run api tests
-        run: |
-          npx cypress run --spec cypress/e2e/api/tests/
+      - name: Run API tests
+        run: npx cypress run --spec cypress/e2e/API-Automation/
       - name: Publish test summary results
         if: always()
-        run: npx github-actions-ctrf ctrf/ctrf-report.json
+        run: npx github-actions-ctrf --output-file ctrf/ctrf-report.json || true
