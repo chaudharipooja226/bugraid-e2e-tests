@@ -12,22 +12,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4  # Ensures the latest version
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4  # Updated to v4
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Use Node.js 20 as per the latest requirements
+          node-version: '16'  # Try Node.js 16 if you're facing issues with Node.js 20
 
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Cypress Tests
-        run: npx cypress run --spec "cypress/e2e/API-Automation/**/*"  # Adjust path if necessary
+      - name: Set executable permissions for Cypress binary
+        run: chmod +x node_modules/.bin/cypress
+
+      - name: Run Cypress Tests with Debugging
+        run: |
+          export DEBUG=cypress:*
+          npx cypress run --spec "cypress/e2e/API-Automation/**/*"
 
       - name: Upload Test Artifacts
-        if: failure()  # Only upload if tests fail
-        uses: actions/upload-artifact@v4  # Updated to v4
+        if: failure()
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-artifacts
-          path: cypress/screenshots/  # Directory for screenshots of failed tests
+          path: cypress/screenshots/
