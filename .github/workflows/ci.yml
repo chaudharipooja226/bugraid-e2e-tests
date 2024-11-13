@@ -1,49 +1,43 @@
-name: CI/CD Pipeline
-
+name: API automation run on dev env
 on:
-  push:
+  pull_request:
+    types: [ opened, edited, synchronize ]
     branches:
-      - master  # Trigger the pipeline on pushes to the master branch
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
 
 jobs:
-  # Job to install dependencies and run API tests
-  api-test:
+  api-run:
     runs-on: ubuntu-latest
+    name: API Automation Tests
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'  # Set Node.js version as needed
-      - name: Install dependencies for API tests
-        working-directory: ./API-Automation  # Point to the API-Automation folder
-        run: npm install
-      - name: Run API tests
-        working-directory: ./API-Automation  # Point to the API-Automation folder
-        run: npm run test:api  # Ensure this matches your API test script
-
-  # Job to install dependencies and run UI tests (Cypress)
-  ui-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'  # Set Node.js version as needed
-      - name: Install dependencies for UI tests
-        working-directory: ./UI-Automation  # Point to the UI-Automation folder
-        run: npm install
-      - name: Run UI tests
-        working-directory: ./UI-Automation  # Point to the UI-Automation folder
-        run: npm run test:ui  # Ensure this matches your UI test script
-
-  # Job to deploy if tests pass
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [api-test, ui-test]  # Run deploy job only after both API and UI tests pass
-    if: success()  # Only deploy if both tests pass
-    steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to Production
-        run: ./deploy.sh  # Replace with your deployment script or commands
+      - name: Git checkout
+        uses: actions/checkout@v4
+      - name: Delete cypress directory (screenshots)
+        shell: bash
+        run: |
+          echo "delete Screenshots directory"
+          rm -rf cypress/screenshots || true
+      - name: Install dependencies
+        shell: bash
+        run: |
+          npm install
+      - name: List directories
+        shell: bash
+        run: |
+          echo "list base directory"
+          ls -la
+          echo "list cypress directory"
+          ls -ls cypress
+          echo "npx version"
+          npx --version
+          echo "To remove ERROR:gpu_memory_buffer_support_x11.cc(44)] dri3 extension not supported."
+          export LIBGL_DRI3_DISABLE=1
+      - name: Run api tests
+        run: |
+          npx cypress run --spec cypress/e2e/api/tests/
+      - name: Publish test summary results
+        if: always()
+        run: npx github-actions-ctrf ctrf/ctrf-report.json
