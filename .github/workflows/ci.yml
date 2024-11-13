@@ -1,41 +1,39 @@
-name: API automation run on dev env
+name: Cypress Automation CI
+
 on:
   pull_request:
-    types: [opened, edited, synchronize]
-    branches:
-      - main
-  workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * *"
+    branches: [main]  # Run on PRs to the main branch
+  push:
+    branches: [main]  # Run on code pushes to the main branch
+  workflow_dispatch:  # Allow manual run of the workflow
 
 jobs:
-  api-run:
+  cypress-tests:
     runs-on: ubuntu-latest
-    name: API Automation Tests
     steps:
-      - name: Git checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Delete Cypress screenshots directory
-        run: |
-          echo "Deleting screenshots directory if it exists"
-          rm -rf cypress/screenshots || true
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Specify the Node.js version
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Check base directory structure
-        run: |
-          echo "Listing base directory"
-          ls -la
-          echo "Listing Cypress directory structure"
-          ls -la cypress
-          echo "Listing API-Automation directory structure"
-          ls -la cypress/e2e/API-Automation || echo "Directory not found"
+      - name: Run Cypress Tests
+        run: npx cypress run --spec cypress/e2e/API-Automation/
 
-      - name: Run API tests
-        run: npx cypress run --spec cypress/e2e/API-Automation/ --headed --browser chrome
+      - name: Upload Test Artifacts
+        if: failure()  # Only upload screenshots/videos if tests fail
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-artifacts
+          path: cypress/screenshots/  # Upload screenshots for failed tests
 
-      - name: Publish test summary results
-        if: always()
-        run: npx github-actions-ctrf --output-file ctrf/ctrf-report.json || true
+      - name: Publish Test Report (Optional)
+        run: npx cypress run --reporter junit
+        env:
+          # Set any additional environment variables needed here
+          BASE_URL: 'your-base-url'  # If your tests need a specific BASE_URL
