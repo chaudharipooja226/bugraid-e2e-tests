@@ -2,38 +2,32 @@ name: Cypress Automation CI
 
 on:
   pull_request:
-    branches: [main]  # Run on PRs to the main branch
+    branches: [main]
   push:
-    branches: [main]  # Run on code pushes to the main branch
-  workflow_dispatch:  # Allow manual run of the workflow
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   cypress-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Ensures the latest version
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # Updated to v4
         with:
-          node-version: '16'  # Specify the Node.js version
+          node-version: '20'  # Use Node.js 20 as per the latest requirements
 
       - name: Install Dependencies
         run: npm install
 
       - name: Run Cypress Tests
-        run: npx cypress run --spec cypress/e2e/API-Automation/
+        run: npx cypress run --spec "cypress/e2e/API-Automation/**/*"  # Adjust path if necessary
 
       - name: Upload Test Artifacts
-        if: failure()  # Only upload screenshots/videos if tests fail
-        uses: actions/upload-artifact@v3
+        if: failure()  # Only upload if tests fail
+        uses: actions/upload-artifact@v4  # Updated to v4
         with:
           name: cypress-artifacts
-          path: cypress/screenshots/  # Upload screenshots for failed tests
-
-      - name: Publish Test Report (Optional)
-        run: npx cypress run --reporter junit
-        env:
-          # Set any additional environment variables needed here
-          BASE_URL: 'https://api-singapore.bugraid.ai/api/v1'  # If your tests need a specific BASE_URL
+          path: cypress/screenshots/  # Directory for screenshots of failed tests
