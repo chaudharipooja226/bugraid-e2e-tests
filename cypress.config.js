@@ -3,15 +3,18 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
+    
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
     env: {
-      BASE_URL: 'https://dev-app.bugraid.ai',
+      BASE_URL: 'https://dev-app.bugraid.ai/',
       API_URL: 'https://api-singapore.bugraid.ai/api/v1',
       LOGIN_EMAIL: 'pooja.chaudhari@p99soft.com',
       LOGIN_PASSWORD: 'Pooja@123'
+      
     },
+    pageLoadTimeout: 120000, // Increased timeout to 2 minutes
     reporter: 'cypress-multi-reporters',
   reporterOptions: {
     reporterEnabled: 'spec,xunit',

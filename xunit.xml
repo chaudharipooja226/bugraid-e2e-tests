@@ -1,7 +1,19 @@
-<testsuite name="Mocha Tests" tests="5" failures="0" errors="0" skipped="0" timestamp="Tue, 22 Oct 2024 12:03:33 GMT" time="2.621">
-<testcase classname="User and Team API Tests" name="should successfully invite a user with a unique email" time="1.024"/>
-<testcase classname="User and Team API Tests" name="should successfully create a team with a unique name" time="0.305"/>
-<testcase classname="User and Team API Tests" name="should successfully update the team" time="0.366"/>
-<testcase classname="User and Team API Tests" name="should successfully update the team details" time="0.276"/>
-<testcase classname="User and Team API Tests" name="should successfully get team by ID" time="0.355"/>
+<testsuite name="Mocha Tests" tests="8" failures="0" errors="3" skipped="0" timestamp="Mon, 11 Nov 2024 10:54:51 GMT" time="105.35">
+<testcase classname="Team Module Tests" name="should invite user with a unique email" time="12.575"/>
+<testcase classname="Team Module Tests" name="should create a new team" time="8.633"/>
+<testcase classname="Team Module Tests" name="Update team" time="10.162"/>
+<testcase classname="Team Module Tests" name="Add user in the team" time="0"><failure>Timed out retrying after 4000ms: Expected to find element: &#x60;[data-testid=&#x22;existing-team&#x22;]&#x60;, but never found it.
+AssertionError: Timed out retrying after 4000ms: Expected to find element: &#x60;[data-testid=&#x22;existing-team&#x22;]&#x60;, but never found it.
+    at TeamPage.addteamuser (webpack://bugraid-automation/./cypress/support/PageObject/TeamPage.js:57:11)
+    at Context.eval (webpack://bugraid-automation/./cypress/e2e/UI-Automation/team.cy.js:41:19)</failure></testcase>
+<testcase classname="Team Module Tests" name="create new schedule" time="0"><failure>Timed out retrying after 4000ms: Expected to find content: &#x27;Pooja Chaudhari&#x27; within the selector: &#x27;li&#x27; but never did.
+AssertionError: Timed out retrying after 4000ms: Expected to find content: &#x27;Pooja Chaudhari&#x27; within the selector: &#x27;li&#x27; but never did.
+    at TeamPage.selectuser (webpack://bugraid-automation/./cypress/support/PageObject/TeamPage.js:74:11)
+    at Context.eval (webpack://bugraid-automation/./cypress/e2e/UI-Automation/team.cy.js:51:16)</failure></testcase>
+<testcase classname="Team Module Tests" name="Edit schedule" time="10.724"/>
+<testcase classname="Team Module Tests" name="create new escalation policy" time="0"><failure>Timed out retrying after 4000ms: Expected to find content: &#x27;Bugraid-Scheudle&#x27; within the selector: &#x27;li&#x27; but never did.
+AssertionError: Timed out retrying after 4000ms: Expected to find content: &#x27;Bugraid-Scheudle&#x27; within the selector: &#x27;li&#x27; but never did.
+    at TeamPage.selectscheduleuser (webpack://bugraid-automation/./cypress/support/PageObject/TeamPage.js:120:46)
+    at Context.eval (webpack://bugraid-automation/./cypress/e2e/UI-Automation/team.cy.js:74:13)</failure></testcase>
+<testcase classname="Team Module Tests" name="Edit Escalation Policy" time="18.203"/>
 </testsuite>

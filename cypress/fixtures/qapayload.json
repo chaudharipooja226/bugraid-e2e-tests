@@ -113,89 +113,162 @@
       },
 
       "createservice": {
-        "service_name": "API automation service",
+        "service_name": "Invoice service",
         "service_desc": "",
-        "business_unit": "KQY4UOLY",
+        "business_unit": "G-IHL97R",
         "business_unit_name": "",
         "business_unit_description": "",
-        "escalation_policy": {
-            "policy_name": "API automation service- Escalation Policy",
-            "oncall_users": {
-                "id": "UCMGPAH8Y",
-                "first_name": "Pooja",
-                "last_name": "Chaudhari",
-                "email": "pooja.chaudhari@p99soft.com"
-            }
-        },
+        "escalation_policy": "MAFMY7VA",
         "selectedPlatformData": [
             {
-                "platformId": 1,
-                "name": "newrelic",
-                "tool_type": "inbound",
+                "platformId": 8,
+                "name": "jira",
+                "tool_type": "outbound",
                 "level": "service",
                 "created_by": {
                     "email": "pooja.chaudhari@p99soft.com",
                     "first_name": "Pooja",
                     "last_name": "Chaudhari",
-                    "id": "UCMGPAH8Y"
+                    "id": "UYHS6M0JP"
                 },
                 "updated_by": {
                     "email": "pooja.chaudhari@p99soft.com",
                     "first_name": "Pooja",
                     "last_name": "Chaudhari",
-                    "id": "UCMGPAH8Y"
+                    "id": "UYHS6M0JP"
                 },
-                "company_id": "TICFD0S2V",
+                "company_id": "TDMYRTRDF",
                 "company_name": "Bugraid-QA"
             }
         ]
+    
     },
     "updateservice":{
-      "name": "API automation service",
+      "name": "Invoice service",
       "team": {},
       "description": " ",
       "business_units": [
-          "KQY4UOLY"
+          "G-IHL97R"
       ],
-      "escalation_policy": "UCMGPAH8Y"
+      "escalation_policy": "MAFMY7VA"
+  
   },
 "singleIncident": {
-            "title": "Test the Incident APIs",
-    "description": "Test the Incident APIs",
-            "service": {
-                "id": "LE_WGXAL",
-                "name": "Bugraid service",
-                "escalation_policy": "PJWJKA3S",
-                "escalation_policy_name": "Bugraid service- Escalation Policy"
-            },
-            "urgency": "low",
-            "priority": "low",
-            "reported_by": {
-                "first_name": "Pooja",
-                "last_name": "Chaudhari",
-                "email": "pooja.chaudhari+22@p99soft.com",
-                "id": "U_KEIJPQ0"
-            },
+  "title": "API error",
+  "description": "This is the API error message",
+  "service": {
+      "company_id": "TDMYRTRDF",
+      "incidents": [
+          "INC-2CXO_PJ3",
+          "INC-5ICIYVM_",
+          "INC-CNLQQ-VI",
+          "INC-3XZDCDTX",
+          "INC-TGIQ-SH_",
+          "INC-IT_KDEXA",
+          "INC-I83YUPH4"
+      ],
+      "created_at": "2024-11-08T05:48:02.893Z",
+      "maintenance_mode": false,
+      "created_by": "UYHS6M0JP",
+      "status": "active",
+      "name": "Invoice service",
+      "updated_at": "2024-11-08T05:48:02.893Z",
+      "business_units": [
+          "Y_LHXMEH"
+      ],
+      "updated_by": "UYHS6M0JP",
+      "escalation_policy": "MAFMY7VA",
+      "team": {
+          "name": "Dev Team1",
+          "id": "TAQKMQEJS"
+      },
+      "description": "",
+      "id": "1TEDVHFT",
+      "counts": {
+          "triggered": 0,
+          "resolved": 1,
+          "acknowledged": 6
+      },
+      "escalation_policy_name": "Bugraid Service- Escalation Policy",
+      "oncall_users": {
+          "last_name": "Chaudhari",
+          "id": "UYHS6M0JP",
+          "first_name": "Pooja",
+          "email": "pooja.chaudhari@p99soft.com"
+      },
+      "lastIncidentAt": "2024-11-11T04:41:39.155Z",
+      "integrationCount": 1,
+      "business_unit_name": "New Bus"
+  },
+  "urgency": "low",
+  "priority": "low",
+  "reported_by": {
+      "first_name": "Pooja",
+      "last_name": "Chaudhari",
+      "email": "pooja.chaudhari@p99soft.com",
+      "id": "UYHS6M0JP"
+  
+},
 
 
 "multipleIncidents": {
         "incidentBase": {
             "priority": "low",
             "reported_by": {
-              "first_name": "Pooja",
-                "last_name": "Chaudhari",
-                "email": "pooja.chaudhari+22@p99soft.com",
-                "id": "U_KEIJPQ0"
+             "first_name": "Pooja",
+      "last_name": "Chaudhari",
+      "email": "pooja.chaudhari@p99soft.com",
+      "id": "UYHS6M0JP"
             },
             "service": {
-                "id": "LE_WGXAL",
-                "name": "Bugraid service",
-                "escalation_policy": "PJWJKA3S",
-                "escalation_policy_name": "Bugraid service- Escalation Policy"
-            },
-            "urgency": "low"
-        
-    }
+              "company_id": "TDMYRTRDF",
+              "incidents": [
+                  "INC-2CXO_PJ3",
+                  "INC-5ICIYVM_",
+                  "INC-CNLQQ-VI",
+                  "INC-3XZDCDTX",
+                  "INC-TGIQ-SH_",
+                  "INC-IT_KDEXA",
+                  "INC-I83YUPH4"
+              ],
+              "created_at": "2024-11-08T05:48:02.893Z",
+              "maintenance_mode": false,
+              "created_by": "UYHS6M0JP",
+              "status": "active",
+              "name": "Invoice service",
+              "updated_at": "2024-11-08T05:48:02.893Z",
+              "business_units": [
+                  "Y_LHXMEH"
+              ],
+              "updated_by": "UYHS6M0JP",
+              "escalation_policy": "MAFMY7VA",
+              "team": {
+                  "name": "Dev Team1",
+                  "id": "TAQKMQEJS"
+              },
+              "description": "",
+              "id": "1TEDVHFT",
+              "counts": {
+                  "triggered": 0,
+                  "resolved": 1,
+                  "acknowledged": 6
+              },
+              "escalation_policy_name": "Bugraid Service- Escalation Policy",
+              "oncall_users": {
+                  "last_name": "Chaudhari",
+                  "id": "UYHS6M0JP",
+                  "first_name": "Pooja",
+                  "email": "pooja.chaudhari@p99soft.com"
+              },
+              "lastIncidentAt": "2024-11-11T04:41:39.155Z",
+              "integrationCount": 1,
+              "business_unit_name": "New Bus"
+          },
+          "urgency": "low",
+          "priority": "low"
+         
+          
+              }
 }
   
   }

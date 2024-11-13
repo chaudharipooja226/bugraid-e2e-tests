@@ -1,49 +1,69 @@
-// import IncidentPage from '../../support/PageObject/IncidentPage'; // Adjust the path as necessary
 
-// describe('Incident Management', () => {
-//     beforeEach(() => {
-//         // Call the custom login command
-//         cy.login();
-//     });
-
-//     it('should create and resolve an incident', () => {
-//         IncidentPage.navigateToIncidentTab();
-//         IncidentPage.createIncident('Test Incident', 'This is a test description.');
-//         IncidentPage.acknowledgeIncident();
-//         IncidentPage.assignIncident();
-//         IncidentPage.resolveIncident();
-        
-        
-//     });
-// });
 import IncidentPage from '../../support/PageObject/IncidentPage'; // Adjust the path as necessary
 
 describe('Incident Management', () => {
     beforeEach(() => {
-        // Call the custom login command
+       
         cy.login();
+        cy.wait(4000);
     });
 
     it('should create an incident', () => {
-        IncidentPage.navigateToIncidentTab();
-        IncidentPage.createIncident('Test Incident 1', 'This is a test description for creating an incident.');
+        const uniqueTitle = `Title ${Date.now()}`; 
+        const uniqueDescription = `Description ${Date.now()}`; 
+    
+        IncidentPage.incidentTab();
+        IncidentPage.createIncidentButton();
+        IncidentPage.titleField(uniqueTitle);
+        IncidentPage.descriptionField(uniqueDescription);
+        IncidentPage.submitButton();
+        IncidentPage.incidenttittle();
+        IncidentPage.acknowledgeButton();
+        IncidentPage.clickcreateticket();
+        IncidentPage.Clickcreate();
+    });
+it('should create and aknowledge incident', () => {
+    IncidentPage.incidentTab();
+    cy.wait(4000);
+    IncidentPage.createIncidentButton();
+    cy.wait(5000);
+    IncidentPage.titleField('Tittle');
+    IncidentPage.descriptionField('description');
+    IncidentPage.submitButton();
+    IncidentPage.incidenttittle();
+    IncidentPage.acknowledgeButton();
+});
+    it('should create and resolve an incident', () => {
+        // IncidentPage.incidentTab();
+        // IncidentPage.createIncidentButton();
+        // IncidentPage.titleField('Tittle');
+        // IncidentPage.descriptionField('description');
+        // IncidentPage.submitButton();
+        IncidentPage.incidenttittle();
+        cy.wait(2000);
+        IncidentPage.acknowledgeButton();
+        IncidentPage.clickresolveButton();
+        IncidentPage.enterresolvereason('Issue fixed succesfully');
+        IncidentPage.clickresolve();
+    });
+    
+
+    it('should create jira ticket for incident', () => {
+        const uniqueTitle = `Title ${Date.now()}`; 
+        const uniqueDescription = `Description ${Date.now()}`; 
+        IncidentPage.incidentTab();
+        IncidentPage.createIncidentButton();
+        IncidentPage.titleField('Tittle');
+        IncidentPage.descriptionField('description');
+        IncidentPage.submitButton();
+        IncidentPage.incidenttittle();
+        IncidentPage.acknowledgeButton();
+        IncidentPage.clickcreateticket();
+        IncidentPage.selectProject();
+        IncidentPage.ticketassigneedropdown();
+        IncidentPage.Clickcreate();
+       
     });
 
-    it('should create and acknowledge an incident', () => {
-        IncidentPage.navigateToIncidentTab();
-        IncidentPage.createIncident('Test Incident 2', 'This is a test description for acknowledging an incident.');
-        IncidentPage.acknowledgeIncident();
-    });
 
-    it('should create and assign an incident', () => {
-        IncidentPage.navigateToIncidentTab();
-        IncidentPage.createIncident('Test Incident 3', 'This is a test description for assigning an incident.');
-        IncidentPage.assignIncident();
-    });
-
-    // it('should create and resolve an incident', () => {
-    //     IncidentPage.navigateToIncidentTab();
-    //     IncidentPage.createIncident('Test Incident 4', 'This is a test description for resolving an incident.');
-    //     IncidentPage.resolveIncident();
-    // });
 });

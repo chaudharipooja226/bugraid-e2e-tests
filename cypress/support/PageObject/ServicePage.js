@@ -1,57 +1,96 @@
-// cypress/support/PageObject/ServicePage.js
-
 class ServicePage {
-    // Navigate to the Service tab
+    
     navigateToServiceTab() {
-        cy.get(':nth-child(7) > a > .MuiButtonBase-root').click(); 
-    }
-  clickCreateServiceButton() {
-    cy.get('.css-1wxaqej > .MuiButtonBase-root').click(); 
+   
+       cy.get("[data-testid='services']").click({force: true});
     }
 
-    
+    clickCreateServiceButton() {
+      
+        cy.get("[ data-testid='create new service']").click();
+        
+    }
+
     selectExistingBusinessUnit() {
-        cy.get('.MuiSelect-select').click(); 
-        cy.get('[data-value="-BW4WIKT"]').select('Bugraid dev bussiness'); 
+        cy.get('[data-testid="existing-bussinessunit-dropdown"]').click();
+        cy.wait(2000);
+        cy.get('[ data-testid="select-bussinessunit"]').should('be.visible').first().click();
+
     }
 
     createNewBusinessUnit() {
-        cy.get("input[value='createnew']").click(); 
-        cy.get('input[type="text"][required]').type('New Business Unit Name'); }
 
-   
+        cy.get('[data-testid="radio-createnew"] > .PrivateSwitchBase-input', { timeout: 10000 }).click({ force: true });
+
+        cy.get("[data-testid='new-division']", { timeout: 10000 }).type('New Business Unit Name');
+
+
+    }
+    selectexistingescaltionpolicy(){
+        cy.get('[data-testid="escalation-policy-textfield"]').click();
+        cy.contains('Bugraid Service- Escalation Policy').click();              
+     }
+
     enterServiceDetails(serviceName, description) {
-        cy.get('input[name="service_name"]').type(serviceName); 
-        cy.get('textarea[name="service_desc"]').type(description); 
-    }
+         
+        cy.get("[data-testid='service-name']").type(serviceName); 
+        cy.get("[data-testid='service-description']").type(description);
+    }  
 
-    
     selectTeam(teamName) {
-        cy.get('div[role="combobox"].MuiSelect-select').click;
-        cy.get('li.MuiMenuItem-root[data-value="TKQSFQCCK"]').select('Test Team 1'); // Replace with actual selector
+        cy.get('[data-testid="team-dropdown"] > .MuiInputBase-root').click(); 
+        cy.get('[data-testid="select-team-option"]').should('be.visible').first().click();
+    }
+//     selectTeam() {
+//         cy.get("[data-testid='team-dropdown']").click();
+//         cy.get('li.MuiMenuItem-root').first().click({ force: true });
+
+// }
+   clickNextButton() {
+       
+       cy.get('[data-testid="next-button"]').click();
+        
     }
 
-    
-    selectEscalationPolicy(policyName) {
-        cy.get('.MuiSvgIcon-root[data-testid="ArrowDropDownIcon"]').click();
-        cy.get('#\:rf\:-option-3 > .MuiBox-root > .MuiTypography-body1').click; // Replace with actual selector
+    clickIntegration() {
+        cy.get('[data-testid="jira"] > .PrivateSwitchBase-input').click()
     }
 
-    
-    clickNextButton() {
-        cy.get('.MuiButton-containedPrimary').click();
-    }
-
-   
     clickCreateNewServiceButton() {
-        cy.get('.css-1tpkql9').click(); 
+        cy.get('[data-testid="skip-button"]').click(); 
     }
-    editservice(){
-        cy.get('.MuiButton-outlinedPrimary').click();
-        // cy.get('#mui-component-select-team').click();
-        // cy.get('[data-value="TJXQAOQS-"]').click();
-        cy.get('button[type="button"].MuiButton-containedPrimaryt').click();
+
+    editService() {
+        cy.get('[data-testid="update-button"]').first().click();
+       
     }
+    Clickupdatebutton(){
+ cy.get('[data-testid="update-button"]').first().click
+    }
+    
+ Clickupdateservice(){
+    cy.get('[data-testid="update-button"]').click();
+
+ }    
+ updatedescription(description){
+    //cy.get('[data-testid="update-description"]').clear().type(description); 
+    cy.get('[data-testid="update-description"]').type(description);
+
+ }
+ clickviewbutton(){
+    cy.get('[data-testid="view-button"]').first().click();
+ }
+clickdeletebutton(){
+    cy.get('[data-testid="delete-button"]').click();
+    cy.get('[data-testid="confirm-delete"]').click();
 }
+clickskipbutton(){
+   
+    cy.get('[data-testid="skip-button"]').click();
+}
+clickfinalcreatenew(){
+  cy.get ('[data-testid="create-new-service-button"]').click();
+
+}}
 
 export default new ServicePage();

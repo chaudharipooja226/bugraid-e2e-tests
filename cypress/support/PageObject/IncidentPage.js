@@ -1,64 +1,77 @@
 class IncidentPage {
-    // Locators
-    get incidentTab() {
-        return cy.get("div[class='MuiGrid-root MuiGrid-container css-95imkh'] div:nth-child(1) button:nth-child(1)");
+    
+     incidentTab() {
+       
+       cy.get("[data-testid='incidents']").click({force: true});
     }
 
-    get createIncidentButton() {
-        return cy.get('.MuiGrid-container > .MuiButtonBase-root');
+     createIncidentButton() {
+         
+         cy.get("[data-testid='create new incident']").click();
     }
 
-    get titleField() {
-        return cy.get('input.MuiInputBase-input.MuiOutlinedInput-input[name="title"]');
+    titleField(title) { 
+        cy.get("[data-testid='incident-tittle']").type(title);
     }
 
-    get descriptionField() {
-        return cy.get('textarea[name="description"]');
+    descriptionField(description) { 
+        cy.get("[data-testid='incident-description']").type(description);
+    }
+     submitButton() {
+        
+         cy.get("[data-testid='create-incident']").click();
+    }
+    incidenttittle(){
+        cy.get('[data-testid="tittle"]').first().click();
+    }
+     acknowledgeButton() {
+      
+       cy.get("[ data-testid='acknowledged-button']").click();
     }
 
-    get submitButton() {
-        return cy.get('.css-1kcmdmk > :nth-child(2) > .MuiButtonBase-root');
+     incidentassignButton() {
+          cy.get("[ data-testid='assignee-button']").click();
+          cy.contains('li', 'Pooja Chaudhari').click();
+         
+    }
+    ticketassigneedropdown(){
+        cy.get('[data-testid="ticket-assignee-dropdown"]').click();
+        cy.contains('li', 'Suraj Shinde').click();
+
     }
 
-    get acknowledgeButton() {
-        return cy.get('.p-4 > .flex-col > .flex > :nth-child(1)');
+ clickresolveButton() {
+        cy.get("[ data-testid='resolve-button']").click();
+        }
+    enterresolvereason(resolvereason){
+        
+        cy.get("[data-testid='resolve-input']").type(resolvereason);
     }
+    clickresolve(){
+        
+        cy.get("[ data-testid='resolve']").click();
 
-    get assignButton() {
-        return cy.get('.p-4 > .flex-col > .flex > :nth-child(2)');
     }
+    clickcreateticket(){
+       
+       cy.get("[data-testid='create-ticket-button']").click();
+    }
+    selectProject() {
+    cy.get("[ data-testid='project-dropdown']").click();
+    cy.contains('li', 'Bugraid.AI').click();
+    }
+    
 
-    get resolveButton() {
-       // return cy.get('#resolveButton'); 
+    
+    
+    Clickcreate(){
+        cy.get('form > .MuiBox-root > .MuiButtonBase-root').click();
     }
+//     clickticketlink(){
+//         cy.get('.MuiGrid-container > :nth-child(5) > .flex > .font-normal').click();
+//     }
 
-  
-    navigateToIncidentTab() {
-        this.incidentTab.click(); // Call click directly on the getter
-    }
-
-    // Method to create an incident
-    createIncident(title, description) {
-        this.createIncidentButton.click();
-        this.titleField.type(title);
-        this.descriptionField.type(description);
-        this.submitButton.click();
-    }
-
-    // Method to acknowledge the incident
-    acknowledgeIncident() {
-        this.acknowledgeButton.click();
-    }
-
-    // Method to assign the incident
-    assignIncident() {
-        this.assignButton.click();
-    }
-
-    // Method to resolve the incident
-    resolveIncident() {
-        this.resolveButton.click();
-    }
+// }
 }
 
 export default new IncidentPage();

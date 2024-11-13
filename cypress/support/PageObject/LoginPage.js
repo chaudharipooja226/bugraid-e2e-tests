@@ -2,32 +2,44 @@
 
 class LoginPage {
     visit() {
-        cy.visit('/login'); // Adjust the URL as necessary
+        cy.visit('/login'); 
     }
 
     enterEmail(email) {
-        cy.get('input[name="email"]').first().type(email, { force: true }); // Select the first matching element
+        cy.get('input[name="email"]').first().type(email, { force: true }); 
     }
 
     enterPassword(password) {  
-        cy.get('input[name="password"]').first().type(password, { force: true }); // Adjust selector as needed
+        cy.get('input[name="password"]').first().type(password, { force: true }); 
     }
 
     submit() {
-        cy.get('.MuiGrid-item > .css-rfnosa > .MuiBox-root > form > .MuiButtonBase-root').click(); // Adjust selector as needed
-    }
+        cy.get('[data-testid="submit"]').click(); }
 
     getLogo() {
-        cy.get('img'); // Replace with the actual selector for the logo
+        cy.get('[ data-testid="image"]'); 
     }
 
-    getAppName() {
-        return cy.contains('BugRaid.AI'); // Adjust the selector as necessary
-    }
+    clickeachtab() {
+    cy.get("[data-testid='incidents']").click({force: true});
+    cy.get("[data-testid='automation']").click({force: true});
+    cy.get("[data-testid='analytics']").click({force: true});
+    cy.get("[data-testid='integrations']").click({force: true});
+    cy.get("[data-testid='teams']").click({force: true});
+    cy.get("[data-testid='services']").click({force: true});
 
-    getErrorMessage() {
-        return cy.get('.error-message-selector'); // Replace with the actual selector for error messages
-    }
+} 
+getAppName() {
+    return cy.contains('BugRaid.AI'); 
+
 }
+
+
+
+    submit() {
+        cy.get('button').contains('Login').click();}
+}
+
+ 
 
 export default new LoginPage();
