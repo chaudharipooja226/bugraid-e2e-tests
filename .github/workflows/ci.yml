@@ -28,7 +28,7 @@ jobs:
       - name: Run Cypress Tests with Debugging
         run: |
           export DEBUG=cypress:*
-          npx cypress run --spec "cypress/e2e/API-Automation/**/*"
+          npx cypress run --spec "cypress/e2e/API-Automation/"
 
       - name: Upload Test Artifacts
         if: failure()
