@@ -91,6 +91,14 @@ clickskipbutton(){
 clickfinalcreatenew(){
   cy.get ('[data-testid="create-new-service-button"]').click();
 
+}
+clickdisableservice(){
+    cy.get('[data-testid="disable-button"]').click();
+    cy.get('[data-testid="confirm-delete"]').click();
+
+}
+clickenableservice(){
+    cy.get('[data-testid="enable-service"]').click();
 }}
 
 export default new ServicePage();

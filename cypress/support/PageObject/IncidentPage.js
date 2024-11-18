@@ -67,11 +67,31 @@ class IncidentPage {
     Clickcreate(){
         cy.get('form > .MuiBox-root > .MuiButtonBase-root').click();
     }
-//     clickticketlink(){
-//         cy.get('.MuiGrid-container > :nth-child(5) > .flex > .font-normal').click();
-//     }
+    clickactivitytab(){
+        cy.get('[data-testid="click-activity-tab"]').click();
+    }
+    clickcommenttab(){
+        cy.get('[data-testid="click-comment-tab"]').click();
+    }
+    clickcommentinput(comment){
+        cy.get('[data-testid="comment-input"]').type(comment);
+    }
+    clicksavecomment(){
+        cy.get('[data-testid="save-button"]').click();
+    }
+    clickeditcomment(updatecomment) {
+    cy.get('[style="display: flex; justify-content: flex-start; margin-top: 18px; margin-left: 38px;"] > [data-testid="edit-comment"]').first().click({force:true});
+    cy.get('.ql-editor').clear().type(updatecomment);
 
-// }
+    }
+    clickdeletecomment()
+    {
+        cy.get(':nth-child(1) > [style="display: flex; justify-content: flex-start; margin-top: 18px; margin-left: 38px;"] > [data-testid="delete-button"]') .click()
+    }
+     clickconfirmdelete(){
+        cy.get('[data-testid="confirm-delete"]').first().click({force:true});
+     }
+
 }
 
 export default new IncidentPage();
