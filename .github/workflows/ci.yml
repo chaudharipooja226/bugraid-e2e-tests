@@ -28,7 +28,7 @@ jobs:
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v5
         with:
-          spec: "cypress/e2e/API-Automation/**/*"
+          spec: "cypress/e2e/API-Automation/"
           record: false  # Set true if using Cypress Dashboard
           browser: chrome  # Specify a browser if needed
           group: "API Tests"
