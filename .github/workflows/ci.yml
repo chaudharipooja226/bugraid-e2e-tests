@@ -12,41 +12,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the Code
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Step 2: Set Up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '16'  # Use the Node.js version compatible with your Cypress tests
+          node-version: '16'
 
-      # Step 3: Install Dependencies
+      - name: Clean Workspace
+        run: rm -rf node_modules package-lock.json
+
       - name: Install Dependencies
         run: npm install
 
-      # Step 4: Install Cypress
       - name: Install Cypress
         run: npx cypress install
 
-      # Step 5: Set Permissions for Cypress Binary (Fix for Exit Code 126)
       - name: Fix Cypress Binary Permissions
         run: chmod +x node_modules/.bin/cypress
 
-      # Step 6: Verify Test Files
-      - name: Verify Test Files
-        run: ls -R cypress/e2e/UI-Automation
+      - name: Debug Cypress Installation
+        run: |
+          ls -l node_modules/.bin/
+          npx cypress --version
+          ls -R cypress/e2e/UI-Automation
 
-      # Step 7: Run Cypress UI Tests
       - name: Run Cypress UI Tests
         run: |
           export DEBUG=cypress:*
           npx cypress run --spec "cypress/e2e/UI-Automation/**/*.cy.js"
         env:
-          CYPRESS_BASE_URL: "https://qa-app.bugraid.ai/"  # Replace with your actual application URL
+          CYPRESS_BASE_URL: "https://qa-app.bugraid.ai/"
 
-      # Step 8: Upload Test Artifacts (Screenshots and Videos)
       - name: Upload Screenshots
         if: failure()
         uses: actions/upload-artifact@v4
@@ -61,7 +59,6 @@ jobs:
           name: cypress-videos
           path: cypress/videos/
 
-      # Step 9: Notify on Test Failure (Optional)
       - name: Notify on Failure
         if: failure()
         run: echo "Tests failed. Review the artifacts for details."
