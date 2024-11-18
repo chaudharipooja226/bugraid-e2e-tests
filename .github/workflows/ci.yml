@@ -43,7 +43,7 @@ jobs:
           export DEBUG=cypress:*
           npx cypress run --spec "cypress/e2e/UI-Automation/**/*.cy.js"
         env:
-          CYPRESS_BASE_URL: "https://qa-app.bugraid.ai/"
+          CYPRESS_BASE_URL: "http://localhost:5173/"
 
       - name: Upload Screenshots
         if: failure()
