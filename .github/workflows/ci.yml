@@ -19,19 +19,18 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Install Cypress
+      - name: Install Cypress Dependencies
         run: npx cypress install
 
+      - name: Verify Cypress Binary
+        run: |
+          ls -l node_modules/.bin/
+          node_modules/.bin/cypress --version
+
       - name: Run Cypress Tests
-        uses: cypress-io/github-action@v5
-        with:
-          spec: "cypress/e2e/API-Automation/"
-          record: false  # Set true if using Cypress Dashboard
-          browser: chrome  # Specify a browser if needed
-          group: "API Tests"
+        run: |
+          export DEBUG=cypress:*
+          npx cypress run --spec "cypress/e2e/API-Automation/**/*.cy.js"
 
       - name: Upload Test Artifacts
         if: failure()
