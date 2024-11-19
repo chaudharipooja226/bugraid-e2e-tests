@@ -70,12 +70,16 @@ describe('Service Module Tests', () => {
         ServicePage.Clickupdateservice();
     });
 
+<<<<<<< HEAD
     it('should delete a service', () => {
         ServicePage.navigateToServiceTab();
         cy.wait(3000);
         ServicePage.clickviewbutton();
         ServicePage.clickdeletebutton();
     });
+=======
+    
+>>>>>>> 122cc15a399a388d32ba61c0ac2034e44c15a223
     it('should disable a service', () => {
         ServicePage.navigateToServiceTab();
         cy.wait(1000);
