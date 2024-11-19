@@ -11,7 +11,7 @@ describe('Incident Management API Tests', () => {
             cy.log('Incident Token Loaded:', incidenttoken);
         });
 
-        cy.fixture('devpayload').then((payload) => {
+        cy.fixture('qapayload').then((payload) => {
             singleIncident = payload.singleIncident; 
         });
     });

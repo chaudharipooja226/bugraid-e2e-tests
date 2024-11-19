@@ -1,4 +1,4 @@
-name: Cypress Automation CI
+name: Cypress UI Automation CI
 
 on:
   pull_request:
@@ -8,8 +8,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  cypress-tests:
+  cypress-ui-tests:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -19,23 +20,45 @@ jobs:
         with:
           node-version: '16'
 
+      - name: Clean Workspace
+        run: rm -rf node_modules package-lock.json
+
       - name: Install Dependencies
         run: npm install
 
       - name: Install Cypress
         run: npx cypress install
 
-      - name: Run Cypress Tests
-        uses: cypress-io/github-action@v5
-        with:
-          spec: "cypress/e2e/API-Automation/**/*"
-          record: false  # Set true if using Cypress Dashboard
-          browser: chrome  # Specify a browser if needed
-          group: "API Tests"
+      - name: Fix Cypress Binary Permissions
+        run: chmod +x node_modules/.bin/cypress
 
-      - name: Upload Test Artifacts
+      - name: Debug Cypress Installation
+        run: |
+          ls -l node_modules/.bin/
+          npx cypress --version
+          ls -R cypress/e2e/UI-Automation
+
+      - name: Run Cypress UI Tests
+        run: |
+          export DEBUG=cypress:*
+          npx cypress run --spec "cypress/e2e/UI-Automation/**/*.cy.js"
+        env:
+          CYPRESS_BASE_URL: "http://localhost:5173/"
+
+      - name: Upload Screenshots
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-artifacts
+          name: cypress-screenshots
           path: cypress/screenshots/
+
+      - name: Upload Videos
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos/
+
+      - name: Notify on Failure
+        if: failure()
+        run: echo "Tests failed. Review the artifacts for details."

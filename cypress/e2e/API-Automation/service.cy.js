@@ -7,7 +7,9 @@
         let createservice;
         let updatePayload;
         let standaloneservice; // Variable to hold update payload
-        const companyId = "TNMX5EX_6";
+        const companyId = "TDMYRTRDF";
+
+        //"TNMX5EX_6"
     
         before(() => {
             cy.fixture('token').then((tokens) => {
@@ -15,7 +17,7 @@
                 cy.log('Service Token Loaded:', servicetoken);
             });
     
-            cy.fixture('devpayload').then((payload) => {
+            cy.fixture('qapayload').then((payload) => {
                 createservice = payload.createservice;
                 createservice.companyId = companyId;
                 updatePayload = payload.updatePayload;

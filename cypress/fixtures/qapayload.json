@@ -1,5 +1,5 @@
 {
-    "grafana": {
+  "grafana": {
       "receiver": "Test web hook 1",
       "status": "firing",
       "alerts": [
@@ -53,128 +53,160 @@
       "state": "alerting",
       "message": "Some big message..."
     },
-    "newRelic": {
-      "id": "d1b1f3fd-995a-4066-88ab-8ce4f6960654",
-      "issueUrl": "https://radar-api.service.newrelic.com/accounts/1/issues/0ea2df1c-adab-45d2-aae0-042b609d2322?notifier=SLACK",
-      "title": "Memory Used % > 90 for at least 2 minutes on 'Some-Entity'",
-      "priority": "CRITICAL",
-      "impactedEntities": ["logs.itg.cloud", "MonitorTTFB query"],
-      "totalIncidents": 42,
-      "state": "ACTIVATED",
-      "trigger": "INCIDENT_ADDED",
-      "isCorrelated": false,
-      "createdAt": 1617881246260,
-      "updatedAt": 1617881246260,
-      "sources": ["newrelic"],
-      "alertPolicyNames": ["Policy1", "Policy2"],
-      "alertConditionNames": ["condition1", "condition2"],
-      "workflowName": "DBA Team workflow"
-    },
-    "pagerDuty": {
-      "event": {
-        "id": "01F53D8PU1AV8L7J2IXL9264Q9",
-        "event_type": "incident.annotated",
-        "resource_type": "incident",
-        "occurred_at": "2024-10-16T07:38:48.191Z",
-        "agent": {
-          "html_url": "https://dharmnath.pagerduty.com/users/PHF9YS2",
-          "id": "PHF9YS2",
-          "self": "https://api.pagerduty.com/users/PHF9YS2",
-          "summary": "Aryan",
-          "type": "user_reference"
-        },
-        "client": null,
-        "data": {
-          "incident": {
-            "html_url": "https://dharmnath.pagerduty.com/incidents/Q16GF6R130M4EU",
-            "id": "Q16GF6R130M4EU",
-            "self": "https://api.pagerduty.com/incidents/Q16GF6R130M4EU",
-            "summary": "Helo",
-            "type": "incident_reference"
-          },
-          "id": "PJ9TB62",
-          "content": "Resolution Note: asd",
-          "trimmed": false,
-          "type": "incident_note"
-        }
-      }
-    },
-    "aws": {
-        "Type": "Notification",
-        "MessageId": "f94e835c-8592-5798-8dee-dc04dd394142",
-        "TopicArn": "arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic",
-        "Subject": "ALARM: \"node_disk_used(i-007a83a108d6e2c6e)\" in Asia Pacific (Singapore)",
-        "Message": "{\"AlarmName\":\"node_disk_used(i-007a83a108d6e2c6e)\",\"AlarmDescription\":null,\"AWSAccountId\":\"528104389666\",\"AlarmConfigurationUpdatedTimestamp\":\"2024-09-09T01:58:09.198+0000\",\"NewStateValue\":\"ALARM\",\"NewStateReason\":\"Threshold Crossed: 1 out of the last 1 datapoints [66.66201000304783 (09/09/24 01:54:00)] was greater than the threshold (30.0) (minimum 1 datapoint for OK -> ALARM transition).\",\"StateChangeTime\":\"2024-09-09T01:59:07.423+0000\",\"Region\":\"Asia Pacific (Singapore)\",\"AlarmArn\":\"arn:aws:cloudwatch:ap-southeast-1:528104389666:alarm:node_disk_used(i-007a83a108d6e2c6e)\",\"OldStateValue\":\"OK\",\"OKActions\":[\"arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic\"],\"AlarmActions\":[\"arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic\"],\"InsufficientDataActions\":[\"arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic\"],\"Trigger\":{\"MetricName\":\"disk_used_percent\",\"Namespace\":\"CWAgent\",\"StatisticType\":\"Statistic\",\"Statistic\":\"AVERAGE\",\"Unit\":null,\"Dimensions\":[{\"value\":\"/\",\"name\":\"path\"},{\"value\":\"i-007a83a108d6e2c6e\",\"name\":\"InstanceId\"},{\"value\":\"xvda1\",\"name\":\"device\"},{\"value\":\"xfs\",\"name\":\"fstype\"}],\"Period\":300,\"EvaluationPeriods\":1,\"DatapointsToAlarm\":1,\"ComparisonOperator\":\"GreaterThanThreshold\",\"Threshold\":30.0,\"TreatMissingData\":\"missing\",\"EvaluateLowSampleCountPercentile\":\"\"}}",
-        "Timestamp": "2024-09-09T01:59:07.472Z",
-        "SignatureVersion": "1",
-        "Signature": "C7i0Zp5lovY8a0F80AtsoHv6yoII+YAzPeKq0vvkD2E2yvYac/W9FstnnzqrQhPF/e8pH4zInBDw3e0F3w8ctiamWnS8jpNHIuo+jN3FATnzWA0BV0eDmhlozNRJndSIafNZNcCtRlA3jmUMHpY46OlN/PmDtIKacvfkvaSNwaWvW3F+KCysqVq640MRI7A/QD0KWN8QiDgmMoEhzUhETMtrZHU5yu2LhThpFne1XOAldegCt+lOgzn5NxbF/NLSlpjV8QPkZa35fwph1rXfQosBQ3NgnNa9fQeOIpaVfj2Z+wcYsXShA8LEQConbiN0FHPmWtogfOOczORcR9lbwQ==",
-        "SigningCertURL": "https://sns.ap-southeast-1.amazonaws.com/SimpleNotificationService-60eadc530605d63b8e62a523676ef735.pem",
-        "UnsubscribeURL": "https://sns.ap-southeast-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic:a290580c-353e-4d15-b433-816568796f56"
+  "newRelic": {
+    "id": "d1b1f3fd-995a-4066-88ab-8ce4f6960654",
+    "issueUrl": "https://radar-api.service.newrelic.com/accounts/1/issues/0ea2df1c-adab-45d2-aae0-042b609d2322?notifier=SLACK",
+    "title": "Memory Used % > 90 for at least 2 minutes on 'Some-Entity'",
+    "priority": "CRITICAL",
+    "impactedEntities": ["logs.itg.cloud", "MonitorTTFB query"],
+    "totalIncidents": 42,
+    "state": "ACTIVATED",
+    "trigger": "INCIDENT_ADDED",
+    "isCorrelated": false,
+    "createdAt": 1617881246260,
+    "updatedAt": 1617881246260,
+    "sources": ["newrelic"],
+    "alertPolicyNames": ["Policy1", "Policy2"],
+    "alertConditionNames": ["condition1", "condition2"],
+    "workflowName": "DBA Team workflow"
+  },
+  
+  "pagerDuty": {
+    "event": {
+      "id": "01F53D8PU1AV8L7J2IXL9264Q9",
+      "event_type": "incident.annotated",
+      "resource_type": "incident",
+      "occurred_at": "2024-10-16T07:38:48.191Z",
+      "agent": {
+        "html_url": "https://dharmnath.pagerduty.com/users/PHF9YS2",
+        "id": "PHF9YS2",
+        "self": "https://api.pagerduty.com/users/PHF9YS2",
+        "summary": "Aryan",
+        "type": "user_reference"
       },
-
-      "createservice": {
-        "service_name": "Invoice service",
-        "service_desc": "",
-        "business_unit": "G-IHL97R",
-        "business_unit_name": "",
-        "business_unit_description": "",
-        "escalation_policy": "MAFMY7VA",
-        "selectedPlatformData": [
-            {
-                "platformId": 8,
-                "name": "jira",
-                "tool_type": "outbound",
-                "level": "service",
-                "created_by": {
-                    "email": "pooja.chaudhari@p99soft.com",
-                    "first_name": "Pooja",
-                    "last_name": "Chaudhari",
-                    "id": "UYHS6M0JP"
-                },
-                "updated_by": {
-                    "email": "pooja.chaudhari@p99soft.com",
-                    "first_name": "Pooja",
-                    "last_name": "Chaudhari",
-                    "id": "UYHS6M0JP"
-                },
-                "company_id": "TDMYRTRDF",
-                "company_name": "Bugraid-QA"
-            }
-        ]
-    
-    },
-    "updateservice":{
-      "name": "Invoice service",
-      "team": {},
-      "description": " ",
-      "business_units": [
-          "G-IHL97R"
-      ],
-      "escalation_policy": "MAFMY7VA"
+      "client": null,
+      "data": {
+        "incident": {
+          "html_url": "https://dharmnath.pagerduty.com/incidents/Q16GF6R130M4EU",
+          "id": "Q16GF6R130M4EU",
+          "self": "https://api.pagerduty.com/incidents/Q16GF6R130M4EU",
+          "summary": "Helo",
+          "type": "incident_reference"
+        },
+        "id": "PJ9TB62",
+        "content": "Resolution Note: asd",
+        "trimmed": false,
+        "type": "incident_note"
+      }
+    }
   
   },
-"singleIncident": {
-  "title": "API error",
-  "description": "This is the API error message",
+  "aws": 
+  {
+    "Type": "Notification",
+    "MessageId": "f94e835c-8592-5798-8dee-dc04dd394142",
+    "TopicArn": "arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic",
+    "Subject": "ALARM: \"node_disk_used(i-007a83a108d6e2c6e)\" in Asia Pacific (Singapore)",
+    "Message": "{\"AlarmName\":\"node_disk_used(i-007a83a108d6e2c6e)\",\"AlarmDescription\":null,\"AWSAccountId\":\"528104389666\",\"AlarmConfigurationUpdatedTimestamp\":\"2024-09-09T01:58:09.198+0000\",\"NewStateValue\":\"ALARM\",\"NewStateReason\":\"Threshold Crossed: 1 out of the last 1 datapoints [66.66201000304783 (09/09/24 01:54:00)] was greater than the threshold (30.0) (minimum 1 datapoint for OK -> ALARM transition).\",\"StateChangeTime\":\"2024-09-09T01:59:07.423+0000\",\"Region\":\"Asia Pacific (Singapore)\",\"AlarmArn\":\"arn:aws:cloudwatch:ap-southeast-1:528104389666:alarm:node_disk_used(i-007a83a108d6e2c6e)\",\"OldStateValue\":\"OK\",\"OKActions\":[\"arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic\"],\"AlarmActions\":[\"arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic\"],\"InsufficientDataActions\":[\"arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic\"],\"Trigger\":{\"MetricName\":\"disk_used_percent\",\"Namespace\":\"CWAgent\",\"StatisticType\":\"Statistic\",\"Statistic\":\"AVERAGE\",\"Unit\":null,\"Dimensions\":[{\"value\":\"/\",\"name\":\"path\"},{\"value\":\"i-007a83a108d6e2c6e\",\"name\":\"InstanceId\"},{\"value\":\"xvda1\",\"name\":\"device\"},{\"value\":\"xfs\",\"name\":\"fstype\"}],\"Period\":300,\"EvaluationPeriods\":1,\"DatapointsToAlarm\":1,\"ComparisonOperator\":\"GreaterThanThreshold\",\"Threshold\":30.0,\"TreatMissingData\":\"missing\",\"EvaluateLowSampleCountPercentile\":\"\"}}",
+    "Timestamp": "2024-09-09T01:59:07.472Z",
+    "SignatureVersion": "1",
+    "Signature": "C7i0Zp5lovY8a0F80AtsoHv6yoII+YAzPeKq0vvkD2E2yvYac/W9FstnnzqrQhPF/e8pH4zInBDw3e0F3w8ctiamWnS8jpNHIuo+jN3FATnzWA0BV0eDmhlozNRJndSIafNZNcCtRlA3jmUMHpY46OlN/PmDtIKacvfkvaSNwaWvW3F+KCysqVq640MRI7A/QD0KWN8QiDgmMoEhzUhETMtrZHU5yu2LhThpFne1XOAldegCt+lOgzn5NxbF/NLSlpjV8QPkZa35fwph1rXfQosBQ3NgnNa9fQeOIpaVfj2Z+wcYsXShA8LEQConbiN0FHPmWtogfOOczORcR9lbwQ==",
+    "SigningCertURL": "https://sns.ap-southeast-1.amazonaws.com/SimpleNotificationService-60eadc530605d63b8e62a523676ef735.pem",
+    "UnsubscribeURL": "https://sns.ap-southeast-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:ap-southeast-1:528104389666:BugRaidTopic:a290580c-353e-4d15-b433-816568796f56"
+  },
+    "createservice": {
+      "service_name": "User Management Service",
+      "service_desc": "This is the user management service",
+      "business_unit": "G-IHL97R",
+      "business_unit_name": "",
+      "business_unit_description": "",
+      "team_id": "TAQKMQEJS",
+      "team_name": "Dev Team1",
+      "escalation_policy": "MAFMY7VA",
+      "selectedPlatformData": [
+          {
+              "platformId": 8,
+              "name": "jira",
+              "tool_type": "outbound",
+              "level": "service",
+              "created_by": {
+                  "email": "pooja.chaudhari@p99soft.com",
+                  "first_name": "Pooja",
+                  "last_name": "Chaudhari",
+                  "id": "UYHS6M0JP"
+              },
+              "updated_by": {
+                  "email": "pooja.chaudhari@p99soft.com",
+                  "first_name": "Pooja",
+                  "last_name": "Chaudhari",
+                  "id": "UYHS6M0JP"
+              },
+              "company_id": "TDMYRTRDF",
+              "company_name": "Bugraid-QA"
+          }
+      ]
+  
+  
+  },
+  "standaloneservice":{
+    "service_name": "Standalone service",
+    "service_desc": "This is the standalone service",
+    "business_unit": "",
+    "business_unit_name": "",
+    "business_unit_description": "",
+    "team_id": "TAQKMQEJS",
+    "team_name": "Dev Team1",
+    "escalation_policy": "69DDQYKB",
+    "selectedPlatformData": [
+        {
+            "platformId": 8,
+            "name": "jira",
+            "tool_type": "outbound",
+            "level": "service",
+            "created_by": {
+                "email": "pooja.chaudhari@p99soft.com",
+                "first_name": "Pooja",
+                "last_name": "Chaudhari",
+                "id": "UYHS6M0JP"
+            },
+            "updated_by": {
+                "email": "pooja.chaudhari@p99soft.com",
+                "first_name": "Pooja",
+                "last_name": "Chaudhari",
+                "id": "UYHS6M0JP"
+            },
+            "company_id": "TDMYRTRDF",
+            "company_name": "Bugraid-QA"
+        }
+    ]
+
+},
+  "updatePayload":{
+    "name": "User Management Service",
+    "team": {
+        "id": "TAQKMQEJS",
+        "name": "Dev Team1"
+    },
+    "description": "This is the user management service",
+    "business_units": [
+        "G-IHL97R"
+    ],
+    "escalation_policy": "MAFMY7VA"
+
+},
+"singleIncident":{
+  "title": "API Error",
+  "description": "API calling issue",
   "service": {
       "company_id": "TDMYRTRDF",
-      "incidents": [
-          "INC-2CXO_PJ3",
-          "INC-5ICIYVM_",
-          "INC-CNLQQ-VI",
-          "INC-3XZDCDTX",
-          "INC-TGIQ-SH_",
-          "INC-IT_KDEXA",
-          "INC-I83YUPH4"
-      ],
-      "created_at": "2024-11-08T05:48:02.893Z",
+      "created_at": "2024-11-19T04:02:41.119Z",
       "maintenance_mode": false,
       "created_by": "UYHS6M0JP",
       "status": "active",
-      "name": "Invoice service",
-      "updated_at": "2024-11-08T05:48:02.893Z",
+      "name": "User Management Service",
+      "updated_at": "2024-11-19T04:02:41.119Z",
       "business_units": [
-          "Y_LHXMEH"
+          "G-IHL97R"
       ],
       "updated_by": "UYHS6M0JP",
       "escalation_policy": "MAFMY7VA",
@@ -182,12 +214,12 @@
           "name": "Dev Team1",
           "id": "TAQKMQEJS"
       },
-      "description": "",
-      "id": "1TEDVHFT",
+      "description": "This is the user management service",
+      "id": "QT9DGAGJ",
       "counts": {
           "triggered": 0,
-          "resolved": 1,
-          "acknowledged": 6
+          "resolved": 0,
+          "acknowledged": 0
       },
       "escalation_policy_name": "Bugraid Service- Escalation Policy",
       "oncall_users": {
@@ -196,9 +228,9 @@
           "first_name": "Pooja",
           "email": "pooja.chaudhari@p99soft.com"
       },
-      "lastIncidentAt": "2024-11-11T04:41:39.155Z",
+      "lastIncidentAt": null,
       "integrationCount": 1,
-      "business_unit_name": "New Bus"
+      "business_unit_name": "Bugraid-Qa-Business"
   },
   "urgency": "low",
   "priority": "low",
@@ -207,72 +239,171 @@
       "last_name": "Chaudhari",
       "email": "pooja.chaudhari@p99soft.com",
       "id": "UYHS6M0JP"
-  
+  }
+
+
 },
 
 
 "multipleIncidents": {
-        "incidentBase": {
-            "priority": "low",
-            "reported_by": {
-             "first_name": "Pooja",
-      "last_name": "Chaudhari",
-      "email": "pooja.chaudhari@p99soft.com",
-      "id": "UYHS6M0JP"
+      "incidentBase": {
+          "priority": "low",
+          "service": {
+            "company_id": "TDMYRTRDF",
+            "created_at": "2024-11-19T04:02:41.119Z",
+            "maintenance_mode": false,
+            "created_by": "UYHS6M0JP",
+            "status": "active",
+            "name": "User Management Service",
+            "updated_at": "2024-11-19T04:02:41.119Z",
+            "business_units": [
+                "G-IHL97R"
+            ],
+            "updated_by": "UYHS6M0JP",
+            "escalation_policy": "MAFMY7VA",
+            "team": {
+                "name": "Dev Team1",
+                "id": "TAQKMQEJS"
             },
-            "service": {
-              "company_id": "TDMYRTRDF",
-              "incidents": [
-                  "INC-2CXO_PJ3",
-                  "INC-5ICIYVM_",
-                  "INC-CNLQQ-VI",
-                  "INC-3XZDCDTX",
-                  "INC-TGIQ-SH_",
-                  "INC-IT_KDEXA",
-                  "INC-I83YUPH4"
-              ],
-              "created_at": "2024-11-08T05:48:02.893Z",
-              "maintenance_mode": false,
-              "created_by": "UYHS6M0JP",
-              "status": "active",
-              "name": "Invoice service",
-              "updated_at": "2024-11-08T05:48:02.893Z",
-              "business_units": [
-                  "Y_LHXMEH"
-              ],
-              "updated_by": "UYHS6M0JP",
-              "escalation_policy": "MAFMY7VA",
-              "team": {
-                  "name": "Dev Team1",
-                  "id": "TAQKMQEJS"
-              },
-              "description": "",
-              "id": "1TEDVHFT",
-              "counts": {
-                  "triggered": 0,
-                  "resolved": 1,
-                  "acknowledged": 6
-              },
-              "escalation_policy_name": "Bugraid Service- Escalation Policy",
-              "oncall_users": {
-                  "last_name": "Chaudhari",
-                  "id": "UYHS6M0JP",
-                  "first_name": "Pooja",
-                  "email": "pooja.chaudhari@p99soft.com"
-              },
-              "lastIncidentAt": "2024-11-11T04:41:39.155Z",
-              "integrationCount": 1,
-              "business_unit_name": "New Bus"
-          },
-          "urgency": "low",
-          "priority": "low"
-         
-          
-              }
-}
+            "description": "This is the user management service",
+            "id": "QT9DGAGJ",
+            "counts": {
+                "triggered": 0,
+                "resolved": 0,
+                "acknowledged": 0
+            },
+            "escalation_policy_name": "Bugraid Service- Escalation Policy",
+            "oncall_users": {
+                "last_name": "Chaudhari",
+                "id": "UYHS6M0JP",
+                "first_name": "Pooja",
+                "email": "pooja.chaudhari@p99soft.com"
+            },
+            "lastIncidentAt": null,
+            "integrationCount": 1,
+            "business_unit_name": "Bugraid-Qa-Business"
+        },
+        "urgency": "low",
+        "priority": "low",
+        "reported_by": {
+            "first_name": "Pooja",
+            "last_name": "Chaudhari",
+            "email": "pooja.chaudhari@p99soft.com",
+            "id": "UYHS6M0JP"
+        }
+},
+
+"loginPayload": {
+  "email": "pooja.chaudhari@p99soft.com",
+  "password": "Pooja@1234"
+
+},
+"invalidLoginPayload": {
+    "email": "pooja.chauri@p99soft.com",
+    "password": "Pooja@1"
+},
+"inviteUser": {
+  "email": "pooja.chaudhari+234@p99soft.com",
+  "first_name": "Pooja",
+  "last_name": "Chaudhari",
+  "password": "62ae5750-6226-4613-9abf-0e544bf9b6f2",
+  "designation": "QA",
+  "company_name": "Bugraid-QA",
+  "company_id": "TDMYRTRDF",
+  "user_created": "UYHS6M0JP",
+  "teams": [],
+  "phone_no": 917823487394,
+  "role": "VIEWER",
+  "is_registered": false,
+  "is_verified": false,
+  "status": "draft"
+
+
+  }, 
+  "createTeam":{
+    "name": "Test Team",
+    "description": "This is the testing team",
+    "user_created": "UYHS6M0JP",
+    "user_created_name": "Pooja Chaudhari",
+    "company_id": "TDMYRTRDF",
+    "users": [],
+    "status": "active"
+
+},
+  "updateTeam": {
+   "name": "Test Team",
+    "description": "This is the testing team"
+
+  },
+  "updateTeamDetails": {
+      "name": "Test Team",
+    "description": "This is the testing team"
+  }
+},
+"createschedule":{
   
+    "schedule_name": "Test Schedule",
+    "timezone": {
+        "name": "Africa/Asmara",
+        "offset": "+03:00"
+    },
+    "shifts": [
+        {
+            "rotation_type": "daily",
+            "handOffTime": "",
+            "users": [
+                {
+                    "id": "U5DQ6XX1W",
+                    "email": "pooja.+6chaudhari@p99soft.com",
+                    "first_name": "Pooja",
+                    "last_name": "Chaudhari"
+                }
+            ],
+            "startDate": "2024-11-19T07:28"
+        }
+    ]
+},
+"updatescheudle":{
+  "schedule_name": "Test Schedule",
+  "timezone": {
+      "name": "Africa/Asmara",
+      "offset": "+03:00"
+  },
+  "shifts": [
+      {
+          "handOffTime": "",
+          "users": [
+              {
+                  "last_name": "Chaudhari",
+                  "id": "U5DQ6XX1W",
+                  "first_name": "Pooja",
+                  "email": "pooja.+6chaudhari@p99soft.com"
+              }
+          ],
+          "startDate": "2024-11-19T04:58",
+          "rotation_type": "daily"
+      }
+  ],
+  "company_id": "TDMYRTRDF",
+  "updated_at": "2024-11-19T04:28:17.617Z",
+  "created_at": "2024-11-19T04:28:17.617Z",
+  "updated_by": "UYHS6M0JP",
+  "created_by": "UYHS6M0JP",
+  "status": "ACTIVE",
+  "oncall_users": {
+      "last_name": "Chaudhari",
+      "id": "U5DQ6XX1W",
+      "first_name": "Pooja",
+      "email": "pooja.+6chaudhari@p99soft.com"
   }
 }
-    
+}
+
+
+
+
+
+
+
   
-  
+
